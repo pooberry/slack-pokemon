@@ -71,7 +71,7 @@ module.exports.getAttackMultiplier = function(offensive, defensive1, defensive2)
       ],
       typeID = typesArray.indexOf(offensive.toLowerCase()) + 1,
       deferred = Q.defer();
-  request("http://pokeapi.co/api/v1/type/"+typeID, function(error, response, body){
+  request("http://pokeapi.co/api/v2/type/"+typeID, function(error, response, body){
     if(response.statusCode == 200) {
       var d = JSON.parse(body),
           ineffective = d.ineffective.map(function(val){return val.name}),
